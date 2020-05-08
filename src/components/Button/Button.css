@@ -1,6 +1,7 @@
 .btn {
     border-radius: 5px;
     padding: 5px;
+    outline: none;
 }
 
 .btn:hover {
@@ -30,6 +31,11 @@
 .btn_small {
     width: 64px;
     font-size: 14px;
+}
+
+.btn_default {
+    width: 74px;
+    font-size: 20px;
 }
 
 .btn_large {

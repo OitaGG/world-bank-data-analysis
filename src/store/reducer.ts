@@ -1,6 +1,8 @@
 import {combineReducers, createStore} from "redux";
+import { LoginReducer } from './login/reducer';
 
 const rootState = combineReducers({
+    Login: LoginReducer
 });
 
 export function configureStore() {

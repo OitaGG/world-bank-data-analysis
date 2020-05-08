@@ -41,4 +41,15 @@ export const LoginFailureActionCreator = (error: string): LoginFailureAction => 
     error: error
 })
 
-export type LoginActionType = LoginAttemptAction | LoginSuccessAction | LoginFailureAction;
+export const LOGOUT = "LOGOUT";
+export type LOGOUT = typeof LOGOUT;
+
+export interface LogoutAction {
+    type: LOGOUT,
+}
+
+export const LogoutActionCreator = (): LogoutAction => ({
+    type: LOGOUT,
+})
+
+export type LoginActionType = LoginAttemptAction | LoginSuccessAction | LoginFailureAction | LogoutAction;

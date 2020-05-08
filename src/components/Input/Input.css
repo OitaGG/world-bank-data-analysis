@@ -1,0 +1,33 @@
+.input {
+    padding: 5px;
+    border-radius: 5px;
+    background: #dfe6e9;
+    border: 1px solid #636e72;
+    outline: none;
+}
+
+.input:hover {
+    border: 1px solid #474787;
+    cursor: pointer;
+}
+
+.input:focus {
+    border: 1px solid #474787;
+    cursor: text;
+}
+
+.input_small {
+    width: 150px;
+    height: 15px;
+}
+
+.input_default {
+    width: 250;
+    height: 20px;
+
+}
+
+.input_large {
+    width: 350px;
+    height: 25px;
+}

@@ -1,12 +1,24 @@
 import * as React from 'react'
+import './Input.css';
 
 interface Props {
-    children: string
+    placeholder?: string,
+    type?: string,
+    size?: string,
+    icon?: string,
+    onChange?: any
 }
 
-const Input = ({children}: Props) => {
+const Input = ({placeholder, type = "withIcon", size = "small", icon = '', onChange}: Props) => {
     return (
-        <input>Hello</input>
+        <div className="input_block">
+            {icon && <img src="#" alt="input icon"/>}
+            <input 
+                className={`input input_${size}`}
+                placeholder={placeholder} 
+                type={type} 
+                onChange={() => onChange()}/>
+        </div>
     )
 }
 
