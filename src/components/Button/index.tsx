@@ -1,16 +1,18 @@
 import * as React from 'react';
-import './Button.css';
+import './Button.less';
 
 export interface ButtonProps {
     children: string,
     size?: string,
-    type?: string
+    type?: string,
+    onClick: any
 }
 
-export default function Button ({children, type = 'primary', size = 'large'}: ButtonProps) {
+export default function Button ({children, type = 'primary', size = 'large', onClick}: ButtonProps) {
     return (
         <button 
-            className={`btn btn_${type} btn_${size}`}>
+            className={`btn btn_${type} btn_${size}`}
+            onClick={onClick}>
                 {children}
         </button>
     );

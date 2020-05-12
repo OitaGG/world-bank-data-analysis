@@ -21,7 +21,11 @@ module.exports = {
         }
     },
     devServer : {
+        historyApiFallback: true,
         port: 4200,
+        contentBase: [ROOT, DESTINATION],// both src and output dirs
+        inline: true,
+        hot: true
     },
     devtool: 'source-map',
     resolve: {
@@ -45,9 +49,9 @@ module.exports = {
                 loader: 'source-map-loader'
             },
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
+            }
         ]
     },
     plugins: [

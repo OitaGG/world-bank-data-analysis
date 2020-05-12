@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './Input.css';
+import './Input.less';
 
 interface Props {
     placeholder?: string,
@@ -16,8 +16,8 @@ const Input = ({placeholder, type = "withIcon", size = "small", icon = '', onCha
             <input 
                 className={`input input_${size}`}
                 placeholder={placeholder} 
-                type={type} 
-                onChange={() => onChange()}/>
+                type={type}
+                onChange={onChange}/>
         </div>
     )
 }

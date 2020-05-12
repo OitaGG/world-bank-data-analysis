@@ -5,7 +5,8 @@
   "app": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open"
+    "dev": "webpack-dev-server --mode development --open",
+    "styleguidist": "npx styleguidist server --open"
   },
   "repository": {
     "type": "git",
@@ -16,16 +17,21 @@
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^6.1.0",
     "react-styleguidist": "^11.0.6",
+    "redux-devtools-extension": "^2.13.8",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.2.1",
     "ts-loader": "^6.2.1",
@@ -35,18 +41,24 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@types/react-redux": "^7.1.7",
+    "connected-react-router": "^6.8.0",
+    "history": "^4.10.1",
     "immer": "^6.0.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   },
   "babel": {
     "presets": [
       "@babel/env",
       "@babel/react",
       "@babel/typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
     ]
   }
 }

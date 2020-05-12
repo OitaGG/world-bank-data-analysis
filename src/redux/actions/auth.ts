@@ -11,7 +11,7 @@ export const LoginAttemptActionCreator = (username: string, password: string): L
     type: LOGIN_ATTEMPT,
     username: username,
     password: password
-})
+});
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export type LOGIN_SUCCESS = typeof LOGIN_SUCCESS;
@@ -26,7 +26,7 @@ export const LoginSuccessActionCreator = (username: string, password: string): L
     type: LOGIN_SUCCESS,
     username: username,
     password: password,
-})
+});
 
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export type LOGIN_FAILURE = typeof LOGIN_FAILURE;
