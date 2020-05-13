@@ -3,7 +3,7 @@ import {useState, useMemo, useEffect} from 'react';
 import {connect} from 'react-redux';
 import { Dispatch } from 'redux';
 import { Login as BaseLogin} from '../component/Login';
-import {LoginAttemptActionCreator} from "../../../redux/actions/auth";
+import {AuthActions} from "../../../redux/actions/auth";
 
 interface Props {
     error: string,
@@ -25,7 +25,6 @@ const Login = ({error, LoginAttempt}: Props) => {
     );
 
     const onLogin = (e: React.FocusEvent) => {
-        console.log(e)
         e.preventDefault();
         LoginAttempt(username, password);
     };
@@ -44,7 +43,7 @@ const mapStateToProps = (store: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    LoginAttempt: (username: string, password: string) => dispatch(LoginAttemptActionCreator(username, password))
+    LoginAttempt: (username: string, password: string) => dispatch(AuthActions.LoginAttemptActionCreator({username: username, password: password}))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

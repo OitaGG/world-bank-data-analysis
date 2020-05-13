@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { LOGIN_ATTEMPT, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, LoginActionType } from '../actions/auth';
+import {AuthActions} from "../actions/auth";
 
 export enum LoginStatus {
     NOT_LOADED = "NOT_LOADED",
@@ -18,29 +18,29 @@ const defaultLoginState: LoginState = {
     status: LoginStatus.NOT_LOADED,
     username: null,
     error: null
-}
+};
 
-export const LoginReducer = (state: LoginState = defaultLoginState, action: LoginActionType): LoginState => {
+export const LoginReducer = (state: LoginState = defaultLoginState, action: any): LoginState => {
     switch(action.type) {
-        case LOGIN_ATTEMPT:
+        case AuthActions.Type.LOGIN_ATTEMPT:
             return produce(state, draft => {
                 draft.status = LoginStatus.LOADING,
-                    draft.error = null,
-                    draft.username = null
+                draft.error = null,
+                draft.username = null
             });
-        case LOGIN_SUCCESS:
+        case AuthActions.Type.LOGIN_SUCCESS:
             return produce(state, draft => {
                 draft.status = LoginStatus.LOADED,
-                    draft.error = null,
-                    draft.username = action.username
+                draft.error = null,
+                draft.username = action.payload.username
             });
-        case LOGIN_FAILURE:
+        case AuthActions.Type.LOGIN_FAILURE:
             return produce(state, draft => {
                 draft.status = LoginStatus.FAILURE,
-                    draft.error = action.error,
-                    draft.username = null
+                draft.error = action.payload,
+                draft.username = null
             });
-        case LOGOUT:
+        case AuthActions.Type.LOGOUT:
             return produce(state, () => {
                 return defaultLoginState;
             });
